@@ -1,0 +1,4 @@
+Usuario: admin
+Clave: 12345
+
+Importante: necesita una conexion a internet para tomar los iconos.
