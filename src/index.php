@@ -7,7 +7,8 @@ $total['clientes'] = mysqli_num_rows($clientes);
 $productos = mysqli_query($conexion, "SELECT * FROM producto");
 $total['productos'] = mysqli_num_rows($productos);
 $ventas = mysqli_query($conexion, "SELECT SUM(total) AS total FROM ventas WHERE id_usuario = $id_usuario");
-$resultVenta = mysqli_fetch_assoc($ventas);
+$totalVentas = mysqli_fetch_assoc($ventas);
+$resultVenta = ($totalVentas['total'] == null) ? 0 : $totalVentas['total'];
 include_once "includes/header.php";
 ?>
 <div class="row">
@@ -52,7 +53,7 @@ include_once "includes/header.php";
                     </div>
                     <div class="widget-stats-content flex-fill">
                         <span class="widget-stats-title">Total Ventas</span>
-                        <span class="widget-stats-amount">$<?php echo number_format($resultVenta['total'], 2); ?></span>
+                        <span class="widget-stats-amount">$<?php echo number_format($resultVenta, 2); ?></span>
                     </div>
                 </div>
             </div>
@@ -69,7 +70,7 @@ include_once "includes/header.php";
                     </div>
                     <div class="widget-stats-content flex-fill">
                         <span class="widget-stats-title">Ventas por Mes</span>
-                        <span class="widget-stats-amount">$<?php echo number_format($resultVenta['total'], 2); ?></span>
+                        <span class="widget-stats-amount">$<?php echo number_format($resultVenta, 2); ?></span>
                     </div>
                 </div>
                 <div class="widget-stats-chart">
