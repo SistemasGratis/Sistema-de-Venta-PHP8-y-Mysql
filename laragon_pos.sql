@@ -16,7 +16,7 @@
 
 
 -- Volcando estructura de base de datos para laragon_pos
-CREATE DATABASE IF NOT EXISTS `laragon_pos` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `laragon_pos` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb3_spanish_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `laragon_pos`;
 
 -- Volcando estructura para tabla laragon_pos.cliente
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `detalle_permisos` (
   KEY `id_usuario` (`id_usuario`),
   CONSTRAINT `detalle_permisos_ibfk_1` FOREIGN KEY (`id_permiso`) REFERENCES `permisos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `detalle_permisos_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idusuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb3_spanish_ci;
 
 -- Volcando datos para la tabla laragon_pos.detalle_permisos: ~0 rows (aproximadamente)
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `detalle_venta` (
   KEY `id_venta` (`id_venta`),
   CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`codproducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `detalle_venta_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `ventas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb3_spanish_ci;
 
 -- Volcando datos para la tabla laragon_pos.detalle_venta: ~0 rows (aproximadamente)
 
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `permisos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb3_spanish_ci;
 
 -- Volcando datos para la tabla laragon_pos.permisos: ~6 rows (aproximadamente)
 INSERT INTO `permisos` (`id`, `nombre`) VALUES
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   KEY `id_cliente` (`id_cliente`),
   CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`idcliente`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idusuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb3_spanish_ci;
 
 -- Volcando datos para la tabla laragon_pos.ventas: ~0 rows (aproximadamente)
 
